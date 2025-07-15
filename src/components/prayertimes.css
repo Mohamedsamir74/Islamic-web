@@ -1,0 +1,74 @@
+section {
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+/* الحاوية الرئيسية */
+.container {
+  margin-right: 15%;
+  width: 400px;
+  background-color: #332a33;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  color: white;
+}
+
+.top-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+/* المدينة والتاريخ */
+.city,
+.date {
+  margin-bottom: 10px;
+}
+
+.city h3,
+.date h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.city select {
+  padding: 8px 12px;
+  width: 150px;
+  font-size: 16px;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.city select:focus {
+  border-color: #007bff;
+}
+
+/* مواقيت الصلاة */
+.prayer-times {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prayer-card {
+  background-color: #f0f4f8;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #333;
+  border-right: 5px solid #007bff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.prayer-card span {
+  font-weight: bold;
+  color: #007bff;
+}

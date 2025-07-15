@@ -1,0 +1,26 @@
+/* src/components/prayertimecard.css */
+.prayer-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.prayer-card:hover {
+  transform: scale(1.03);
+  background-color: #f1f1f1;
+}
+
+.prayer-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.prayer-time {
+  font-size: 1.1rem;
+  color: #16a085;
+}
