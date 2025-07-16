@@ -1,4 +1,5 @@
 import "./prayertimes.css";
+
 import PrayerTimeCard from "./PrayerTimeCard";
 import { useEffect, useState } from "react";
 
@@ -9,6 +10,15 @@ const cities = [
   { name: "أسوان", value: "Aswan" },
   { name: "الشرقية", value: "Al-Sharqia" },
 ];
+
+function formatTo12Hour(time) {
+  const [hourStr, minute] = time.split(":");
+  let hour = parseInt(hourStr, 10);
+  const ampm = hour >= 12 ? "م" : "ص";
+
+  hour = hour % 12 || 12; // تحويل 0 إلى 12
+  return `${hour}:${minute} ${ampm}`;
+}
 
 export default function PrayerTimes() {
   const [prayers, setPrayers] = useState([]);
@@ -67,7 +77,7 @@ export default function PrayerTimes() {
             <PrayerTimeCard
               key={prayer.name}
               name={prayer.name}
-              time={prayer.time}
+              time={formatTo12Hour(prayer.time)}
             />
           ))}
         </div>
