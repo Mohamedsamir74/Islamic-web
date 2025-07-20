@@ -1,5 +1,4 @@
 import "./prayertimes.css";
-
 import PrayerTimeCard from "./PrayerTimeCard";
 import { useEffect, useState } from "react";
 
@@ -8,21 +7,20 @@ const cities = [
   { name: "الإسكندرية", value: "Alexandria" },
   { name: "الجيزة", value: "Giza" },
   { name: "أسوان", value: "Aswan" },
-  { name: "الشرقية", value: "Al-Sharqia" },
 ];
 
 function formatTo12Hour(time) {
   const [hourStr, minute] = time.split(":");
   let hour = parseInt(hourStr, 10);
   const ampm = hour >= 12 ? "م" : "ص";
-
-  hour = hour % 12 || 12; // تحويل 0 إلى 12
+  hour = hour % 12 || 12;
   return `${hour}:${minute} ${ampm}`;
 }
 
 export default function PrayerTimes() {
   const [prayers, setPrayers] = useState([]);
   const [selectedCity, setSelectedCity] = useState("Cairo");
+  const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
     const fetchPrayerTimes = async () => {
@@ -31,7 +29,6 @@ export default function PrayerTimes() {
           `https://api.aladhan.com/v1/timingsByCity?city=${selectedCity}&country=Egypt&method=5`
         );
         const data = await response.json();
-
         const timings = data.data.timings;
         setPrayers([
           { name: "الفجر", time: timings.Fajr },
@@ -46,7 +43,23 @@ export default function PrayerTimes() {
     };
 
     fetchPrayerTimes();
-  }, [selectedCity]); // عشان نعيد الجلب لما المدينة تتغير
+  }, [selectedCity]);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString("ar-EG", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const intervalId = setInterval(updateTime, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section>
@@ -71,6 +84,8 @@ export default function PrayerTimes() {
             <h4>{new Date().toLocaleDateString("ar-EG")}</h4>
           </div>
         </div>
+
+        <div className="current-time">الوقت الحالي: {currentTime}</div>
 
         <div className="prayer-times">
           {prayers.map((prayer) => (

@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
   padding: 15px 30px;
-  background-color: rgba(0, 0, 0, 0.4); /* خلفية داكنة شفافة */
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(6px);
   direction: rtl;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -13,11 +14,12 @@
   width: 42px;
   height: 40px;
   object-fit: contain;
-  margin-left: 20px;
-  background-color: rgba(0, 0, 0, 0.3); /* خلفية غامقة شفافة */
+  margin-right: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 4px;
 }
+
 .navbar-links {
   display: flex;
   gap: 30px;
@@ -44,4 +46,50 @@
 .navbar a:active {
   background-color: rgba(255, 255, 255, 0.2);
   transform: scale(0.97);
+}
+
+/* زرار التوجل – مخفي افتراضيًا */
+.navbar-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* يظهر فقط عند الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar a {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+  }
 }

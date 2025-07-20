@@ -1,73 +1,120 @@
 section {
   display: flex;
+  justify-content: center;
   align-items: center;
   padding-top: 40px;
+  padding-inline: 15px;
+  direction: rtl;
+  flex-wrap: wrap;
 }
 
 .container {
-  margin-right: 30%;
-  width: 400px;
+  width: 100%;
+  max-width: 420px;
   background-color: #332a33;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
   color: white;
 }
 
+/* القسم العلوي */
 .top-sec {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  gap: 20px;
 }
 
 /* المدينة والتاريخ */
 .city,
 .date {
-  margin-bottom: 10px;
+  flex: 1;
+  min-width: 140px;
 }
 
 .city h3,
 .date h3 {
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   font-size: 18px;
 }
 
 .city select {
-  padding: 8px 12px;
-  width: 150px;
+  padding: 10px 12px;
+  width: 100%;
   font-size: 16px;
   border-radius: 6px;
+  border: none;
   outline: none;
+  background-color: #fff;
+  color: #333;
   transition: 0.3s;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
 }
 
 .city select:focus {
-  border-color: #007bff;
+  border: 1px solid #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
 
 /* مواقيت الصلاة */
 .prayer-times {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
 .prayer-card {
-  background-color: #f0f4f8;
-  padding: 15px 20px;
-  border-radius: 8px;
+  background-color: #f5f6fa;
+  padding: 18px 22px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 18px;
-  color: #333;
-  border-right: 5px solid #007bff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: #222;
+  border-right: 6px solid #007bff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.prayer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .prayer-card span {
   font-weight: bold;
   color: #007bff;
+}
+
+/* الوقت الحالي */
+.current-time {
+  text-align: center;
+  margin: 25px auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  max-width: 350px;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 768px) {
+  .top-sec {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .prayer-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 16px;
+    padding: 16px;
+  }
 }

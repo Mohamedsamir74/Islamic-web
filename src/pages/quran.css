@@ -1,0 +1,56 @@
+.quran-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: rgb(33 59 68);
+  min-height: 100vh;
+}
+
+.surah-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.surah-list button {
+  background-color: #e0f0e8;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.surah-list button:hover {
+  background-color: #c2e4d0;
+}
+
+.surah-content {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  max-width: 100%;
+  line-height: 1.9;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  .quran-container {
+    padding: 20px 15px;
+  }
+
+  .surah-list button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .surah-content {
+    font-size: 16px;
+    text-align: justify;
+  }
+}

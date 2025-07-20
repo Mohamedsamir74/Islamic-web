@@ -6,8 +6,10 @@
   background-color: #121212;
   color: #fff;
   font-family: "Arial", sans-serif;
+  flex-direction: row;
 }
 
+/* ===== Sidebar ===== */
 .azkar-sidebar {
   width: 220px;
   background-color: #1e1e1e;
@@ -44,6 +46,7 @@
   font-weight: bold;
 }
 
+/* ===== Main Content ===== */
 .azkar-content {
   flex: 1;
   padding: 30px;
@@ -77,4 +80,45 @@
   font-size: 16px;
   color: #ccc;
   margin-top: 8px;
+}
+
+/* ========== Responsive ========== */
+
+@media (max-width: 768px) {
+  .azkar-container {
+    flex-direction: column;
+  }
+
+  .azkar-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-left: none;
+    border-top: 1px solid #333;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .azkar-tab {
+    flex: 1 1 45%;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .azkar-content {
+    padding: 20px 15px;
+  }
+
+  .zekr-text {
+    font-size: 18px;
+  }
+
+  .zekr-count,
+  .zekr-description {
+    font-size: 14px;
+  }
 }
