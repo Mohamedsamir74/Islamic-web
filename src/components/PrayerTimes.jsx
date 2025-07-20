@@ -2,6 +2,7 @@ import "./prayertimes.css";
 import PrayerTimeCard from "./PrayerTimeCard";
 import { useEffect, useState } from "react";
 
+// List of supported cities
 const cities = [
   { name: "القاهرة", value: "Cairo" },
   { name: "الإسكندرية", value: "Alexandria" },
@@ -9,6 +10,7 @@ const cities = [
   { name: "أسوان", value: "Aswan" },
 ];
 
+// Convert time from 24-hour format to 12-hour format with AM/PM (ص/م)
 function formatTo12Hour(time) {
   const [hourStr, minute] = time.split(":");
   let hour = parseInt(hourStr, 10);
@@ -18,10 +20,11 @@ function formatTo12Hour(time) {
 }
 
 export default function PrayerTimes() {
-  const [prayers, setPrayers] = useState([]);
-  const [selectedCity, setSelectedCity] = useState("Cairo");
-  const [currentTime, setCurrentTime] = useState("");
+  const [prayers, setPrayers] = useState([]); // Holds prayer times
+  const [selectedCity, setSelectedCity] = useState("Cairo"); // Currently selected city
+  const [currentTime, setCurrentTime] = useState(""); // Current time display
 
+  // Fetch prayer times whenever selectedCity changes
   useEffect(() => {
     const fetchPrayerTimes = async () => {
       try {
@@ -30,6 +33,8 @@ export default function PrayerTimes() {
         );
         const data = await response.json();
         const timings = data.data.timings;
+
+        // Set only the five main daily prayers
         setPrayers([
           { name: "الفجر", time: timings.Fajr },
           { name: "الظهر", time: timings.Dhuhr },
@@ -38,13 +43,14 @@ export default function PrayerTimes() {
           { name: "العشاء", time: timings.Isha },
         ]);
       } catch (error) {
-        console.error("حدث خطأ:", error);
+        console.error("An error occurred:", error);
       }
     };
 
     fetchPrayerTimes();
   }, [selectedCity]);
 
+  // Update and display the current time every second
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -56,14 +62,16 @@ export default function PrayerTimes() {
       setCurrentTime(timeString);
     };
 
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-    return () => clearInterval(intervalId);
+    updateTime(); // Run immediately
+    const intervalId = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
   return (
     <section>
       <div className="container">
+        {/* Top section: city selection and current date */}
         <div className="top-sec">
           <div className="city">
             <h3>المدينة</h3>
@@ -85,8 +93,10 @@ export default function PrayerTimes() {
           </div>
         </div>
 
+        {/* Display current time */}
         <div className="current-time">الوقت الحالي: {currentTime}</div>
 
+        {/* Render prayer cards */}
         <div className="prayer-times">
           {prayers.map((prayer) => (
             <PrayerTimeCard

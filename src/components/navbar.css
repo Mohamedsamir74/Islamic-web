@@ -1,30 +1,34 @@
+/* Navigation bar container */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row-reverse;
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center; /* Vertically center items */
+  flex-direction: row-reverse; /* RTL layout: links on the left, logo on the right */
   padding: 15px 30px;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  direction: rtl;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  backdrop-filter: blur(6px); /* Apply blur effect */
+  direction: rtl; /* Right-to-left text direction */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light bottom border */
 }
 
+/* Logo styling inside navbar */
 .navbar-logo {
   width: 42px;
   height: 40px;
   object-fit: contain;
   margin-right: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3); /* Slight background for logo */
   border-radius: 8px;
   padding: 4px;
 }
 
+/* Container for navigation links */
 .navbar-links {
   display: flex;
-  gap: 30px;
+  gap: 30px; /* Space between each link */
 }
 
+/* Style for each navigation link */
 .navbar a {
   text-decoration: none;
   border-radius: 10px;
@@ -37,18 +41,20 @@
   border: 1px solid transparent;
 }
 
+/* Hover effect on links */
 .navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px) scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1); /* Light hover background */
+  border-color: rgba(255, 255, 255, 0.2); /* Subtle border on hover */
+  transform: translateY(-2px) scale(1.05); /* Slight move up and zoom */
 }
 
+/* Click effect on links */
 .navbar a:active {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(0.97);
+  background-color: rgba(255, 255, 255, 0.2); /* Stronger background */
+  transform: scale(0.97); /* Slight shrink on click */
 }
 
-/* زرار التوجل – مخفي افتراضيًا */
+/* Toggle button - hidden by default */
 .navbar-toggle {
   display: none;
   font-size: 28px;
@@ -58,10 +64,10 @@
   cursor: pointer;
 }
 
-/* يظهر فقط عند الشاشات الصغيرة */
+/* Responsive styles for small screens */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     align-items: stretch;
   }
 
@@ -72,23 +78,23 @@
   }
 
   .navbar-toggle {
-    display: block;
+    display: block; /* Show toggle button on small screens */
   }
 
   .navbar-links {
-    flex-direction: column;
+    flex-direction: column; /* Stack links vertically */
     gap: 15px;
-    display: none;
+    display: none; /* Hidden by default */
     width: 100%;
     margin-top: 10px;
   }
 
   .navbar-links.active {
-    display: flex;
+    display: flex; /* Show links when menu is active */
   }
 
   .navbar a {
-    width: 100%;
+    width: 100%; /* Full-width links */
     text-align: right;
     padding: 10px;
   }

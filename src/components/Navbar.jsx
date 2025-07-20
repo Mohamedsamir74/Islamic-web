@@ -13,13 +13,16 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-header">
+        {/* Menu toggle button */}
         <button className="navbar-toggle" onClick={toggleMenu}>
           ☰
         </button>
 
-        <img src={logo} alt="لوجو الموقع" className="navbar-logo" />
+        {/* Website logo */}
+        <img src={logo} alt="Website Logo" className="navbar-logo" />
       </div>
 
+      {/* Navigation links */}
       <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <Link to="/" onClick={() => setMenuOpen(false)}>
           الرئيسية

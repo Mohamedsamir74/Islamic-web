@@ -19,7 +19,7 @@ section {
   color: white;
 }
 
-/* القسم العلوي */
+/* Top section */
 .top-sec {
   display: flex;
   justify-content: space-between;
@@ -29,11 +29,11 @@ section {
   gap: 20px;
 }
 
-/* المدينة والتاريخ */
+/* City & Date */
 .city,
 .date {
   flex: 1;
-  min-width: 140px;
+  min-width: 150px;
 }
 
 .city h3,
@@ -60,7 +60,7 @@ section {
   box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
 
-/* مواقيت الصلاة */
+/* Prayer times cards */
 .prayer-times {
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ section {
   color: #007bff;
 }
 
-/* الوقت الحالي */
+/* Current time box */
 .current-time {
   text-align: center;
   margin: 25px auto;

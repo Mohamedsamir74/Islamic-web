@@ -1,47 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
 
+/* Reset default spacing and enable border-box sizing for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Set document direction to right-to-left for Arabic layout */
 html {
   direction: rtl;
 }
 
 body {
+  /* Apply Cairo font for smooth Arabic typography */
   font-family: "Cairo", sans-serif;
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  ); /* خلفية تدرج داكنة أنيقة */
-  background-attachment: fixed;
-  min-height: 100vh;
+
+  /* Stylish dark gradient background */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-attachment: fixed; /* Make background stay fixed while scrolling */
+  min-height: 100vh; /* Ensure full viewport height */
   margin: 0;
   padding: 0;
-  color: #ffffff;
-  line-height: 1.7;
-  direction: rtl;
-  scroll-behavior: smooth;
+  color: #ffffff; /* White text color */
+  line-height: 1.7; /* Improve readability */
+  direction: rtl; /* Ensure RTL text flow */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
 }
 
-/* Scrollbar شكل جميل */
+/* Custom scrollbar styling for modern look */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05); /* Light transparent track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3); /* Thumb with light transparency */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5); /* Thumb gets brighter on hover */
 }
